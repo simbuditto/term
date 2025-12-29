@@ -1,0 +1,223 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+@layer base {
+    :root {
+        /* Professional Insurance Color Scheme */
+        --background: 0 0% 100%;
+        --foreground: 210 25% 15%;
+        
+        /* Primary - Deep Professional Blue */
+        --primary: 210 60% 45%;
+        --primary-foreground: 0 0% 100%;
+        --primary-light: 210 55% 55%;
+        --primary-dark: 210 65% 35%;
+        
+        /* Secondary - Trust Teal */
+        --secondary: 160 50% 45%;
+        --secondary-foreground: 0 0% 100%;
+        
+        /* Accent - Warm Action Orange */
+        --accent: 25 85% 55%;
+        --accent-foreground: 0 0% 100%;
+        
+        /* Neutral Grays */
+        --muted: 210 10% 95%;
+        --muted-foreground: 210 10% 45%;
+        
+        --card: 0 0% 100%;
+        --card-foreground: 210 25% 15%;
+        
+        --popover: 0 0% 100%;
+        --popover-foreground: 210 25% 15%;
+        
+        --border: 210 15% 85%;
+        --input: 210 15% 85%;
+        --ring: 210 60% 45%;
+        
+        --destructive: 0 84% 60%;
+        --destructive-foreground: 0 0% 100%;
+        
+        --success: 142 76% 36%;
+        --success-foreground: 0 0% 100%;
+        
+        /* Custom Design Tokens */
+        --gradient-primary: linear-gradient(135deg, hsl(210 60% 45%), hsl(210 55% 55%));
+        --gradient-secondary: linear-gradient(135deg, hsl(160 50% 45%), hsl(160 45% 55%));
+        --gradient-hero: linear-gradient(180deg, hsl(210 20% 98%), hsl(210 25% 95%));
+        
+        --shadow-sm: 0 2px 8px hsl(210 15% 15% / 0.05);
+        --shadow-md: 0 4px 16px hsl(210 15% 15% / 0.08);
+        --shadow-lg: 0 10px 30px hsl(210 15% 15% / 0.12);
+        --shadow-primary: 0 8px 24px hsl(210 60% 45% / 0.15);
+        
+        --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        --transition-bounce: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        
+        --radius: 0.75rem;
+    }
+    
+    .dark {
+        --background: 210 25% 8%;
+        --foreground: 210 10% 95%;
+        
+        --primary: 210 55% 55%;
+        --primary-foreground: 210 25% 8%;
+        --primary-light: 210 50% 65%;
+        --primary-dark: 210 60% 45%;
+        
+        --secondary: 160 45% 50%;
+        --secondary-foreground: 210 25% 8%;
+        
+        --accent: 25 80% 60%;
+        --accent-foreground: 210 25% 8%;
+        
+        --muted: 210 20% 15%;
+        --muted-foreground: 210 10% 65%;
+        
+        --card: 210 25% 10%;
+        --card-foreground: 210 10% 95%;
+        
+        --popover: 210 25% 10%;
+        --popover-foreground: 210 10% 95%;
+        
+        --border: 210 20% 20%;
+        --input: 210 20% 20%;
+        --ring: 210 55% 55%;
+        
+        --destructive: 0 62% 50%;
+        --destructive-foreground: 0 0% 100%;
+        
+        --success: 142 70% 45%;
+        --success-foreground: 0 0% 100%;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-background text-foreground;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Space Grotesk', 'Inter', sans-serif;
+    }
+}
+
+@layer components {
+    .section-container {
+        @apply min-h-screen w-full;
+    }
+    
+    .content-wrapper {
+        @apply max-w-7xl mx-auto px-6 py-20 lg:px-8;
+    }
+    
+    .gradient-text {
+        @apply bg-clip-text text-transparent;
+        background-image: var(--gradient-primary);
+    }
+    
+    .card-hover {
+        transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+    }
+    
+    .card-hover:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-lg);
+    }
+}
+
+@layer utilities {
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+@layer base {
+    [data-debug-wrapper="true"] {
+        display: contents !important;
+    }
+
+    [data-debug-wrapper="true"] > * {
+        margin-left: inherit;
+        margin-right: inherit;
+        margin-top: inherit;
+        margin-bottom: inherit;
+        padding-left: inherit;
+        padding-right: inherit;
+        padding-top: inherit;
+        padding-bottom: inherit;
+        column-gap: inherit;
+        row-gap: inherit;
+        gap: inherit;
+        border-left-width: inherit;
+        border-right-width: inherit;
+        border-top-width: inherit;
+        border-bottom-width: inherit;
+        border-left-style: inherit;
+        border-right-style: inherit;
+        border-top-style: inherit;
+        border-bottom-style: inherit;
+        border-left-color: inherit;
+        border-right-color: inherit;
+        border-top-color: inherit;
+        border-bottom-color: inherit;
+    }
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.animate-fadeInUp {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-fadeIn {
+    animation: fadeIn 0.6s ease-out;
+}
